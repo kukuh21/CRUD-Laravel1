@@ -50,6 +50,16 @@
                           <div class="card-header">
                               <a href="{{ route('pertanyaan.show', $list->pertanyaan_id) }}">{{ $list->judul }}</a> {{ $list->created_at->diffForHumans() }}
 
+                              <div style="float: right">
+                                <form action="{{ route('pertanyaan.destroy', $list->pertanyaan_id) }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                </form>
+                              </div>
+                              <div style="float: right; margin-right: 10px;">
+                                <a href="{{ route('pertanyaan.edit', $list->pertanyaan_id) }}" class="btn btn-sm btn-warning">Ubah</a>
+                              </div>
                               <div style="float: right; margin-right: 10px;">
                                   <a href="{{ route('pertanyaan.show', $list->pertanyaan_id) }}" class="btn btn-sm btn-info">Lihat</a>
                               </div>
